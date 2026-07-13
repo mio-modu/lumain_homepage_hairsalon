@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>헤어살롱 라움 | 대전 유성구 프리미엄 헤어살롱</title>
+<meta name="description" content="헤어살롱 라움 - 커트, 펌, 염색, 클리닉 전문. 온라인 예약과 AI 상담봇으로 편리하게 이용하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #c9738a;
+    --rose-dark: #9c4a60;
+    --cream: #fdf3f5;
+    --dark: #2b2b2b;
+    --white: #ffffff;
+    --serif: "Noto Serif KR", Georgia, serif;
+    --sans: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--dark);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; }
+  section { padding: 96px 0; }
+  @media (max-width: 640px) { section { padding: 64px 0; } }
+
+  /* ---------- Placeholder image blocks ---------- */
+  .ph {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #f3d9e0, #e9b8c6 50%, #d99cae);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ph-label {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #7a3348;
+    font-size: 12.5px;
+    padding: 16px;
+    line-height: 1.6;
+    font-family: var(--sans);
+  }
+  .ph-label b { display: block; font-size: 13.5px; margin-bottom: 4px; }
+
+  /* ---------- Scroll fade-in ---------- */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Header / Nav ---------- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(253, 243, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201, 115, 138, 0.15);
+    transition: background 0.3s;
+  }
+  .nav-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--rose-dark); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--dark); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--rose-dark); }
+  .nav-cta {
+    background: var(--rose);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--rose-dark); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 6px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--dark); border-radius: 2px; }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    padding: 12px 24px 20px;
+    gap: 4px;
+    border-top: 1px solid rgba(201, 115, 138, 0.15);
+  }
+  .mobile-menu a { padding: 12px 4px; font-size: 15px; font-weight: 500; border-bottom: 1px solid #f2e4e8; }
+  .mobile-menu.open { display: flex; }
+  @media (max-width: 860px) {
+    .nav-links, .nav-cta.desktop-only { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #f3d9e0, #d99cae 55%, #b96d84);
+  }
+  .hero-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(43,20,28,0.15), rgba(43,20,28,0.55)); }
+  .hero-content { position: relative; z-index: 2; color: white; padding: 0 24px; max-width: 720px; }
+  .hero-eyebrow { font-size: 13px; letter-spacing: 4px; font-weight: 700; opacity: 0.9; margin-bottom: 18px; }
+  .hero h1 { font-size: 44px; line-height: 1.35; margin-bottom: 20px; text-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+  .hero p { font-size: 16px; opacity: 0.95; margin-bottom: 36px; }
+  .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--rose);
+    color: white;
+    padding: 15px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); }
+  .btn-outline {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.7);
+    padding: 15px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.2); }
+  @media (max-width: 640px) { .hero h1 { font-size: 30px; } }
+
+  /* ---------- Section heading ---------- */
+  .section-head { text-align: center; max-width: 560px; margin: 0 auto 56px; }
+  .eyebrow { color: var(--rose-dark); font-size: 12.5px; font-weight: 700; letter-spacing: 3px; margin-bottom: 12px; }
+  .section-head h2 { font-size: 32px; margin-bottom: 14px; }
+  .section-head p { color: #6b5a5f; font-size: 15px; }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about-grid .ph { aspect-ratio: 4/3; }
+  .about-text .eyebrow { }
+  .about-text h2 { font-size: 30px; margin-bottom: 18px; }
+  .about-text p { color: #5a4a4e; font-size: 15px; margin-bottom: 16px; }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ---------- Services ---------- */
+  .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(43,20,28,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(43,20,28,0.12); }
+  .service-icon { font-size: 34px; margin-bottom: 16px; }
+  .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+  .service-card .price-list { list-style: none; text-align: left; font-size: 13.5px; color: #5a4a4e; }
+  .service-card .price-list li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #eeddE1; }
+  .service-card .price-list li:last-child { border-bottom: none; }
+  .service-card .price-list b { color: var(--rose-dark); font-weight: 700; }
+  .service-note { text-align: center; margin-top: 32px; color: var(--rose-dark); font-size: 13.5px; font-weight: 600; }
+  @media (max-width: 960px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .service-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Designers ---------- */
+  .designer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .designer-card { text-align: center; }
+  .designer-card .ph { aspect-ratio: 1/1; border-radius: 50%; margin: 0 auto 20px; width: 200px; }
+  .designer-card h3 { font-size: 19px; margin-bottom: 6px; }
+  .designer-card .role { color: var(--rose-dark); font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .designer-card p { color: #6b5a5f; font-size: 13.5px; }
+  @media (max-width: 760px) { .designer-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-grid .ph { aspect-ratio: 1/1; }
+  @media (max-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Reviews ---------- */
+  .review-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 8px 4px 20px;
+    scroll-snap-type: x mandatory;
+  }
+  .review-track::-webkit-scrollbar { height: 6px; }
+  .review-track::-webkit-scrollbar-thumb { background: #e3c1c9; border-radius: 4px; }
+  .review-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 6px 20px rgba(43,20,28,0.06);
+  }
+  .stars { color: #e0a63a; font-size: 15px; margin-bottom: 12px; letter-spacing: 2px; }
+  .review-card p { font-size: 13.5px; color: #4a3d40; margin-bottom: 16px; }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--rose); color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+  .review-author .name { font-size: 13px; font-weight: 700; }
+  .review-author .visit { font-size: 11.5px; color: #999; }
+
+  /* ---------- Booking ---------- */
+  .booking-section { background: var(--white); }
+  .booking-box {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 860px) { .booking-box { grid-template-columns: 1fr; padding: 24px; } }
+  .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cal-header h4 { font-size: 17px; }
+  .cal-nav-btn { background: var(--white); border: 1px solid #eeddE1; width: 32px; height: 32px; border-radius: 50%; font-size: 15px; color: var(--rose-dark); }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+  .cal-grid .dow { font-size: 11.5px; color: #999; font-weight: 700; padding-bottom: 6px; }
+  .cal-day {
+    aspect-ratio: 1/1;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    font-size: 13.5px;
+    background: transparent;
+    border: none;
+    color: var(--dark);
+  }
+  .cal-day.empty { visibility: hidden; }
+  .cal-day.disabled { color: #ccc; cursor: not-allowed; }
+  .cal-day.available:hover { background: #f3d9e0; }
+  .cal-day.selected { background: var(--rose); color: white; font-weight: 700; }
+  .cal-day.today:not(.selected) { border: 1.5px solid var(--rose); }
+
+  .booking-right label { display: block; font-size: 12.5px; font-weight: 700; color: var(--rose-dark); margin: 18px 0 8px; }
+  .booking-right label:first-child { margin-top: 0; }
+  .time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .time-slot {
+    background: var(--white);
+    border: 1px solid #eeddE1;
+    border-radius: 10px;
+    padding: 10px 6px;
+    font-size: 13px;
+    text-align: center;
+    transition: all 0.15s;
+  }
+  .time-slot:hover { border-color: var(--rose); }
+  .time-slot.selected { background: var(--rose); color: white; border-color: var(--rose); font-weight: 700; }
+  select#serviceSelect {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #eeddE1;
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--dark);
+  }
+  .booking-summary {
+    margin-top: 22px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #5a4a4e;
+    display: none;
+  }
+  .booking-summary.show { display: block; }
+  .booking-summary b { color: var(--rose-dark); }
+  .btn-confirm {
+    width: 100%;
+    margin-top: 18px;
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background 0.2s;
+  }
+  .btn-confirm:hover { background: var(--rose-dark); }
+  .booking-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .booking-success.show { display: block; }
+  .booking-success .check { font-size: 44px; margin-bottom: 14px; }
+  .booking-success h3 { font-size: 20px; margin-bottom: 8px; }
+  .booking-success p { color: #6b5a5f; font-size: 13.5px; }
+
+  /* ---------- Location ---------- */
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .location-grid .ph { aspect-ratio: 4/3; }
+  .location-info h3 { font-size: 22px; margin-bottom: 20px; }
+  .info-row { display: flex; gap: 12px; margin-bottom: 16px; font-size: 14px; }
+  .info-row .ico { color: var(--rose-dark); flex-shrink: 0; }
+  .info-row .label { font-weight: 700; width: 64px; flex-shrink: 0; }
+  .info-row .val { color: #5a4a4e; }
+  @media (max-width: 860px) { .location-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer { background: #2b2020; color: #e8d9dc; padding: 56px 0 28px; }
+  .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
+  .footer-logo { font-family: var(--serif); font-size: 22px; color: white; margin-bottom: 10px; }
+  .footer-top p { font-size: 13px; color: #b9a2a7; max-width: 320px; }
+  .footer-hours { font-size: 13px; line-height: 2; color: #cbb5b9; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 12px; color: #8f7a7e; text-align: center; }
+
+  /* ---------- Floating Chatbot ---------- */
+  .chat-fab {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: white;
+    border: none;
+    font-size: 24px;
+    box-shadow: 0 8px 24px rgba(156,74,96,0.4);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+  }
+  .chat-fab:hover { transform: scale(1.06); }
+  .chat-panel {
+    position: fixed;
+    right: 22px;
+    bottom: 92px;
+    width: 340px;
+    max-width: calc(100vw - 32px);
+    height: 460px;
+    max-height: calc(100vh - 140px);
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 300;
+    transform: translateY(20px) scale(0.97);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .chat-panel-header {
+    background: var(--rose);
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-avatar { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+  .chat-panel-header .info b { display: block; font-size: 13.5px; }
+  .chat-panel-header .info span { font-size: 10.5px; opacity: 0.85; }
+  .chat-close { margin-left: auto; background: none; border: none; color: white; font-size: 20px; line-height: 1; }
+  .chat-messages { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; background: #fbf3f5; }
+  .cmsg-row { display: flex; }
+  .cmsg-row.bot { justify-content: flex-start; }
+  .cmsg-row.user { justify-content: flex-end; }
+  .cmsg-bubble { max-width: 80%; padding: 9px 12px; border-radius: 4px 14px 14px 14px; font-size: 12.5px; line-height: 1.5; white-space: pre-wrap; word-break: keep-all; }
+  .cmsg-bubble.bot { background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+  .cmsg-bubble.user { background: var(--rose); color: white; border-radius: 14px 4px 14px 14px; }
+  .chat-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 4px; }
+  .chat-quick button { background: white; border: 1px solid var(--rose); color: var(--rose-dark); font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 14px; }
+  .chat-quick button:hover { background: #fbeef1; }
+  .chat-input-bar { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #f0dfe3; background: white; }
+  .chat-input-bar input { flex: 1; border: none; background: #f5f0f1; border-radius: 18px; padding: 9px 14px; font-size: 12.5px; outline: none; font-family: inherit; }
+  .chat-input-bar button { width: 32px; height: 32px; border-radius: 50%; background: var(--rose); color: white; border: none; font-size: 13px; flex-shrink: 0; }
+  @media (max-width: 420px) {
+    .chat-panel { right: 12px; left: 12px; width: auto; bottom: 84px; }
+    .chat-fab { right: 16px; bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav-wrap">
+    <a href="#hero" class="logo">라움</a>
+    <ul class="nav-links">
+      <li><a href="#services">시술안내</a></li>
+      <li><a href="#designers">디자이너</a></li>
+      <li><a href="#gallery">갤러리</a></li>
+      <li><a href="#reviews">리뷰</a></li>
+      <li><a href="#location">오시는길</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta desktop-only">바로 예약하기</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">시술안내</a>
+    <a href="#designers">디자이너</a>
+    <a href="#gallery">갤러리</a>
+    <a href="#reviews">리뷰</a>
+    <a href="#location">오시는길</a>
+    <a href="#booking">바로 예약하기</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="" onerror="this.remove()">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">HAIR SALON RAUM</div>
+    <h1>일상에 여백을 더하는 시간,<br>헤어살롱 라움</h1>
+    <p>대전 유성구, 커트부터 클리닉까지 — 디자이너와의 1:1 상담으로 완성하는 나만의 스타일</p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-primary">바로 예약하기</a>
+      <a href="#services" class="btn-outline">시술 둘러보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="ph fade-in">
+      <img src="images/about.jpg" alt="" onerror="this.remove()">
+      <div class="ph-label"><b>About 이미지 자리</b>헤어스타일링 도구를 다루는 손 클로즈업<br>(기획안 5-2 프롬프트)</div>
+    </div>
+    <div class="about-text fade-in">
+      <div class="eyebrow">ABOUT RAUM</div>
+      <h2>편안함과 전문성,<br>두 가지를 모두 담은 공간</h2>
+      <p>헤어살롱 라움은 2018년 문을 연 이후, "머리를 하러 오는 시간이 곧 쉬어가는 시간"이 되기를 바라며 공간과 서비스를 다듬어 왔습니다.</p>
+      <p>모든 시술은 디자이너와의 충분한 상담을 거쳐 진행되며, 고객 개개인의 모발 상태와 라이프스타일에 맞춘 스타일을 제안합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" style="background:var(--white)">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">SERVICE &amp; PRICE</div>
+      <h2>시술 안내</h2>
+      <p>모발 길이와 상태에 따라 가격이 달라질 수 있으며, 정확한 견적은 상담 후 안내드립니다</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">✂️</div>
+        <h3>커트</h3>
+        <ul class="price-list">
+          <li><span>일반 커트</span><b>25,000원</b></li>
+          <li><span>디자이너컷</span><b>35,000원</b></li>
+        </ul>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🌀</div>
+        <h3>펌</h3>
+        <ul class="price-list">
+          <li><span>기본펌</span><b>80,000원~</b></li>
+          <li><span>디지털펌</span><b>130,000원~</b></li>
+        </ul>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🎨</div>
+        <h3>염색</h3>
+        <ul class="price-list">
+          <li><span>뿌리염색</span><b>60,000원</b></li>
+          <li><span>전체염색</span><b>90,000원~</b></li>
+        </ul>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">💧</div>
+        <h3>클리닉</h3>
+        <ul class="price-list">
+          <li><span>트리트먼트</span><b>40,000원~</b></li>
+          <li><span>탈색 포함</span><span style="font-size:12px;color:#999">별도상담</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-note fade-in">✦ 신규 고객 첫 방문 시 10% 할인 ✦</div>
+  </div>
+</section>
+
+<!-- ============ DESIGNERS ============ -->
+<section id="designers">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">OUR DESIGNERS</div>
+      <h2>디자이너 소개</h2>
+      <p>각자의 전문 분야를 가진 디자이너들이 상담부터 시술까지 함께합니다</p>
+    </div>
+    <div class="designer-grid">
+      <div class="designer-card fade-in">
+        <div class="ph">
+          <img src="images/designer-1.jpg" alt="" onerror="this.remove()">
+          <div class="ph-label" style="font-size:10.5px">디자이너 사진<br>(5-3 프롬프트)</div>
+        </div>
+        <h3>김라움 원장</h3>
+        <div class="role">커트 · 펌 전문</div>
+        <p>15년 경력, 얼굴형 맞춤 커트 전문</p>
+      </div>
+      <div class="designer-card fade-in">
+        <div class="ph">
+          <img src="images/designer-2.jpg" alt="" onerror="this.remove()">
+          <div class="ph-label" style="font-size:10.5px">디자이너 사진<br>(5-3 프롬프트)</div>
+        </div>
+        <h3>박서연 실장</h3>
+        <div class="role">염색 · 클리닉 전문</div>
+        <p>모발 손상 진단 및 색상 디자인 전문</p>
+      </div>
+      <div class="designer-card fade-in">
+        <div class="ph">
+          <img src="images/designer-3.jpg" alt="" onerror="this.remove()">
+          <div class="ph-label" style="font-size:10.5px">디자이너 사진<br>(5-3 프롬프트)</div>
+        </div>
+        <h3>이하늘 디자이너</h3>
+        <div class="role">디지털펌 · 스타일링 전문</div>
+        <p>웨딩·행사 스타일링 다수 진행</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" style="background:var(--white)">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">GALLERY</div>
+      <h2>시술 갤러리</h2>
+      <p>라움에서 완성된 다양한 스타일을 확인해보세요</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="ph fade-in"><img src="images/gallery-1.jpg" alt="" onerror="this.remove()"><div class="ph-label">발레아쥬 웨이브<br>(5-4)</div></div>
+      <div class="ph fade-in"><img src="images/gallery-2.jpg" alt="" onerror="this.remove()"><div class="ph-label">슬릭 단발컷<br>(5-4)</div></div>
+      <div class="ph fade-in"><img src="images/gallery-3.jpg" alt="" onerror="this.remove()"><div class="ph-label">소프트 컬<br>(5-4)</div></div>
+      <div class="ph fade-in"><img src="images/gallery-4.jpg" alt="" onerror="this.remove()"><div class="ph-label">레이어드컷<br>(5-4)</div></div>
+      <div class="ph fade-in"><img src="images/gallery-5.jpg" alt="" onerror="this.remove()"><div class="ph-label">발레아쥬 웨이브<br>(5-4)</div></div>
+      <div class="ph fade-in"><img src="images/gallery-6.jpg" alt="" onerror="this.remove()"><div class="ph-label">슬릭 단발컷<br>(5-4)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">REVIEWS</div>
+      <h2>고객 후기</h2>
+      <p>라움을 다녀가신 고객님들의 진짜 이야기</p>
+    </div>
+    <div class="review-track fade-in">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"원장님이 제 모발 상태를 꼼꼼히 봐주시고 스타일 추천해주셔서 만족스러웠어요. 예약도 편했습니다."</p>
+        <div class="review-author"><div class="review-avatar">민</div><div><div class="name">이민지</div><div class="visit">커트 · 3주 전 방문</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"디지털펌 처음이었는데 세심하게 설명해주셔서 안심하고 맡길 수 있었어요. 결과도 만족!"</p>
+        <div class="review-author"><div class="review-avatar">수</div><div><div class="name">박수현</div><div class="visit">디지털펌 · 1개월 전 방문</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <p>"염색 상담이 꼼꼼했고 탈색 손상도 최소화해주셨어요. 클리닉도 같이 받으니 확실히 좋아요."</p>
+        <div class="review-author"><div class="review-avatar">지</div><div><div class="name">최지우</div><div class="visit">염색+클리닉 · 2개월 전 방문</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"온라인으로 바로 예약할 수 있어서 편했고, 대기시간 없이 시간 맞춰 진행됐어요."</p>
+        <div class="review-author"><div class="review-avatar">준</div><div><div class="name">김준호</div><div class="visit">커트 · 1주 전 방문</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="booking" class="booking-section">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">RESERVATION</div>
+      <h2>온라인 예약</h2>
+      <p>날짜와 시간, 원하시는 시술을 선택하시면 예약 요청이 접수됩니다</p>
+    </div>
+
+    <div class="booking-box fade-in" id="bookingBox">
+      <div id="bookingForm">
+        <div>
+          <div class="cal-header">
+            <button class="cal-nav-btn" id="calPrev">‹</button>
+            <h4 id="calTitle">2026년 7월</h4>
+            <button class="cal-nav-btn" id="calNext">›</button>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+          <p style="font-size:11.5px;color:#999;margin-top:10px">※ 매주 월요일은 정기휴무입니다</p>
+        </div>
+
+        <div class="booking-right">
+          <label>시간 선택</label>
+          <div class="time-slots" id="timeSlots"></div>
+
+          <label>시술 선택</label>
+          <select id="serviceSelect">
+            <option value="커트 (25,000원~)">커트 (25,000원~)</option>
+            <option value="펌 (80,000원~)">펌 (80,000원~)</option>
+            <option value="염색 (60,000원~)">염색 (60,000원~)</option>
+            <option value="클리닉 (40,000원~)">클리닉 (40,000원~)</option>
+          </select>
+
+          <div class="booking-summary" id="bookingSummary"></div>
+          <button class="btn-confirm" id="confirmBtn">예약 확인하기</button>
+        </div>
+      </div>
+
+      <div class="booking-success" id="bookingSuccess" style="grid-column: 1 / -1;">
+        <div class="check">✅</div>
+        <h3>예약 요청이 접수되었습니다</h3>
+        <p id="successDetail"></p>
+        <p style="margin-top:8px">확인 연락은 영업시간 내 순차적으로 드립니다 (042-987-6543)</p>
+        <button class="btn-outline" style="color:var(--rose-dark);border-color:var(--rose);margin-top:20px" onclick="resetBooking()">다시 예약하기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section id="location" style="background:var(--white)">
+  <div class="container location-grid">
+    <div class="ph fade-in">
+      <img src="images/map.jpg" alt="" onerror="this.remove()">
+      <div class="ph-label"><b>지도 자리</b>카카오맵/네이버맵 embed 또는<br>매장 주변 지도 캡처 이미지로 교체</div>
+    </div>
+    <div class="location-info fade-in">
+      <div class="eyebrow">LOCATION</div>
+      <h3>오시는 길</h3>
+      <div class="info-row"><span class="ico">📍</span><span class="label">주소</span><span class="val">대전광역시 유성구 상대로 45, 1층 (상대동 사거리 스타벅스 옆 건물)</span></div>
+      <div class="info-row"><span class="ico">📞</span><span class="label">전화</span><span class="val">042-987-6543</span></div>
+      <div class="info-row"><span class="ico">🕐</span><span class="label">영업시간</span><span class="val">매일 10:00~20:00 (마지막 예약 19:00) · 매주 월요일 정기휴무</span></div>
+      <div class="info-row"><span class="ico">🚗</span><span class="label">주차</span><span class="val">건물 내 주차 가능 (2시간 무료, 이후 시간당 요금 발생)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-top">
+    <div>
+      <div class="footer-logo">라움</div>
+      <p>일상에 여백을 더하는 시간, 헤어살롱 라움. 대전광역시 유성구 상대로 45, 1층.</p>
+    </div>
+    <div class="footer-hours">
+      매일 10:00 – 20:00 (마지막 예약 19:00)<br>
+      매주 월요일 정기휴무<br>
+      042-987-6543
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="인스타그램">IG</a>
+      <a href="#" aria-label="블로그">BL</a>
+      <a href="#" aria-label="카카오채널">KT</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © 2026 Hair Salon Raum. All rights reserved. · 본 페이지는 포트폴리오 데모입니다.
+  </div>
+</footer>
+
+<!-- ============ FLOATING CHATBOT ============ -->
+<button class="chat-fab" id="chatFab" aria-label="AI 상담봇 열기">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-panel-header">
+    <div class="chat-avatar">라</div>
+    <div class="info"><b>헤어살롱 라움 AI 상담</b><span>보통 몇 초 내 응답</span></div>
+    <button class="chat-close" id="chatClose">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="cmsg-row bot">
+      <div class="cmsg-bubble bot">안녕하세요, 헤어살롱 라움입니다 💇‍♀️<br>예약·가격·영업시간 등 무엇이든 편하게 물어보세요 🙂</div>
+    </div>
+    <div class="chat-quick" id="chatQuick">
+      <button onclick="chatQuick('오늘 영업시간')">영업시간</button>
+      <button onclick="chatQuick('예약하고 싶어요')">예약 문의</button>
+      <button onclick="chatQuick('오시는 길')">오시는 길</button>
+      <button onclick="chatQuick('시술 가격')">시술 가격</button>
+    </div>
+  </div>
+  <div class="chat-input-bar">
+    <input type="text" id="chatInput" placeholder="메시지 입력" onkeypress="if(event.key==='Enter') chatSend()">
+    <button onclick="chatSend()">➤</button>
+  </div>
+</div>
+
+<script>
+/* ---------- Scroll fade-in ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+/* ---------- Mobile nav ---------- */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+/* ================= BOOKING CALENDAR ================= */
+const salonHours = { open: 10, lastReservation: 19, closedWeekday: 1 }; // 1 = Monday
+let calYear, calMonth, selectedDate = null, selectedTime = null;
+
+function initCalendar() {
+  const now = new Date();
+  calYear = now.getFullYear();
+  calMonth = now.getMonth();
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const grid = document.getElementById('calGrid');
+  const title = document.getElementById('calTitle');
+  title.textContent = `${calYear}년 ${calMonth + 1}월`;
+  grid.innerHTML = '';
+
+  ['일','월','화','수','목','금','토'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'dow';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    grid.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(calYear, calMonth, d);
+    const btn = document.createElement('button');
+    btn.className = 'cal-day';
+    btn.textContent = d;
+
+    const isPast = date < today;
+    const isClosed = date.getDay() === salonHours.closedWeekday;
+    const isToday = date.getTime() === today.getTime();
+
+    if (isPast || isClosed) {
+      btn.classList.add('disabled');
+      btn.disabled = true;
+    } else {
+      btn.classList.add('available');
+      btn.addEventListener('click', () => selectDate(date, btn));
+    }
+    if (isToday) btn.classList.add('today');
+    if (selectedDate && date.getTime() === selectedDate.getTime()) btn.classList.add('selected');
+
+    grid.appendChild(btn);
+  }
+}
+
+function selectDate(date, btn) {
+  document.querySelectorAll('.cal-day.selected').forEach(el => el.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedDate = date;
+  renderTimeSlots();
+  updateSummary();
+}
+
+function renderTimeSlots() {
+  const wrap = document.getElementById('timeSlots');
+  wrap.innerHTML = '';
+  for (let h = salonHours.open; h <= salonHours.lastReservation; h++) {
+    const btn = document.createElement('button');
+    btn.className = 'time-slot';
+    btn.textContent = `${h}:00`;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTime = `${h}:00`;
+      updateSummary();
+    });
+    wrap.appendChild(btn);
+  }
+}
+
+function updateSummary() {
+  const summary = document.getElementById('bookingSummary');
+  const service = document.getElementById('serviceSelect').value;
+  if (selectedDate && selectedTime) {
+    const dateStr = `${selectedDate.getFullYear()}년 ${selectedDate.getMonth()+1}월 ${selectedDate.getDate()}일`;
+    summary.innerHTML = `<b>${dateStr} ${selectedTime}</b> · ${service}`;
+    summary.classList.add('show');
+  } else {
+    summary.classList.remove('show');
+  }
+}
+
+document.getElementById('serviceSelect').addEventListener('change', updateSummary);
+
+document.getElementById('calPrev').addEventListener('click', () => {
+  calMonth--;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+});
+document.getElementById('calNext').addEventListener('click', () => {
+  calMonth++;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCalendar();
+});
+
+document.getElementById('confirmBtn').addEventListener('click', () => {
+  if (!selectedDate || !selectedTime) {
+    alert('날짜와 시간을 선택해주세요.');
+    return;
+  }
+  const service = document.getElementById('serviceSelect').value;
+  const dateStr = `${selectedDate.getFullYear()}년 ${selectedDate.getMonth()+1}월 ${selectedDate.getDate()}일`;
+  document.getElementById('successDetail').textContent = `${dateStr} ${selectedTime} · ${service}`;
+  document.getElementById('bookingForm').style.display = 'none';
+  document.getElementById('bookingSuccess').classList.add('show');
+});
+
+function resetBooking() {
+  selectedDate = null;
+  selectedTime = null;
+  document.getElementById('bookingSuccess').classList.remove('show');
+  document.getElementById('bookingForm').style.display = '';
+  document.getElementById('bookingSummary').classList.remove('show');
+  renderCalendar();
+  document.getElementById('timeSlots').innerHTML = '';
+}
+
+initCalendar();
+
+/* ================= FLOATING CHATBOT ================= */
+/* 데모 모드: salon/index.html과 동일한 키워드 매칭 로직 재사용.
+   실 서비스 전환 시 callChatbotAPI()를 서버리스 함수 호출로 교체하면 됨. */
+const demoResponses = [
+  { keywords: ['영업시간', '언제', '몇시', '몇 시', '몇시까지', '휴무'], reply: '매일 오전 10시부터 오후 8시까지 영업해요 (마지막 예약은 오후 7시). 매주 월요일은 정기휴무입니다 🙂' },
+  { keywords: ['예약'], reply: '네, 예약 도와드릴게요! 페이지의 온라인 예약 섹션에서 날짜·시간·시술을 바로 선택하실 수 있어요. 디자이너 지정도 가능합니다.' },
+  { keywords: ['위치', '오시는', '어디', '주소'], reply: '대전광역시 유성구 상대로 45, 1층이에요 (상대동 사거리 스타벅스 옆 건물입니다).' },
+  { keywords: ['펌', '가격', '얼마', '커트', '염색', '클리닉', '트리트먼트'], reply: '커트 25,000원, 기본펌 80,000원부터, 염색은 뿌리염색 60,000원부터예요. 신규 고객은 첫 방문 시 10% 할인 받으실 수 있어요 💇‍♀️' },
+  { keywords: ['어울', '스타일', '추천'], reply: '고객님께 어울리는 스타일은 직접 상담을 통해 디자이너가 정확하게 안내드리고 있어요. 예약 도와드릴까요?' },
+  { keywords: ['주차'], reply: '건물 내 주차가 가능하며 2시간 무료, 이후 시간당 요금이 발생해요 🚗' },
+];
+
+function getDemoReply(userMessage) {
+  const found = demoResponses.find(r => r.keywords.some(k => userMessage.includes(k)));
+  return found ? found.reply : '정확한 안내를 위해 매장으로 직접 문의 부탁드려요 (042-987-6543) 🙂';
+}
+
+async function callChatbotAPI(userMessage) {
+  await new Promise(r => setTimeout(r, 500 + Math.random() * 400));
+  return getDemoReply(userMessage);
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function chatAppendUser(text) {
+  const messages = document.getElementById('chatMessages');
+  const row = document.createElement('div');
+  row.className = 'cmsg-row user';
+  row.innerHTML = `<div class="cmsg-bubble user">${escapeHtml(text)}</div>`;
+  messages.appendChild(row);
+  document.querySelectorAll('#chatMessages .chat-quick').forEach(el => el.remove());
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function chatAppendBot(text) {
+  const messages = document.getElementById('chatMessages');
+  const row = document.createElement('div');
+  row.className = 'cmsg-row bot';
+  row.innerHTML = `<div class="cmsg-bubble bot">${escapeHtml(text)}</div>`;
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+async function chatSend() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  chatAppendUser(text);
+  const reply = await callChatbotAPI(text);
+  chatAppendBot(reply);
+}
+
+function chatQuick(text) {
+  document.getElementById('chatInput').value = text;
+  chatSend();
+}
+
+const chatFab = document.getElementById('chatFab');
+const chatPanel = document.getElementById('chatPanel');
+const chatClose = document.getElementById('chatClose');
+chatFab.addEventListener('click', () => chatPanel.classList.toggle('open'));
+chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
+</script>
+
+</body>
+</html>

@@ -159,15 +159,21 @@ section { padding: 120px 5%; }
 .menu-row .name { font-size: 20px; font-weight: 700; }
 .menu-row .origin { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(28,20,16,0.55); text-transform: uppercase; }
 .menu-row .notes { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(28,20,16,0.55); }
-.menu-row .price { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; text-align: right; }
+.menu-row .price { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 700; text-align: right; white-space: nowrap; }
 .menu-head {
   display: grid; grid-template-columns: 60px 1.6fr 1fr 1fr 100px; gap: 20px;
   padding: 0 0 14px 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
   text-transform: uppercase; letter-spacing: 0.08em; color: rgba(28,20,16,0.5);
 }
 @media (max-width: 700px) {
-  .menu-row, .menu-head { grid-template-columns: 32px 1fr 70px; }
-  .menu-row .origin, .menu-head .origin-h { display: none; }
+  .menu-row, .menu-head { grid-template-columns: 28px 1fr 88px; gap: 14px; }
+  .menu-row .origin, .menu-head .origin-h,
+  .menu-row .notes, .menu-head .notes-h { display: none; }
+  .menu-row .price { font-size: 14px; }
+  .roaster-card .role { font-size: 12.5px; }
+  .roaster-card p { font-size: 14.5px; }
+  .footer-col p, .footer-col a { font-size: 14.5px; }
+  .footer-bottom { font-size: 12.5px; }
 }
 
 /* ===== SPACE (about) ===== */
@@ -183,11 +189,12 @@ section { padding: 120px 5%; }
 
 /* ===== ROASTER PROFILE ===== */
 .roaster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--ink); }
-.roaster-card { background: var(--cream); padding: 32px 26px; }
+.roaster-card { background: var(--cream); padding: 32px 26px; display: flex; align-items: flex-start; gap: 20px; text-align: left; }
 .roaster-avatar {
-  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
-  display: block; margin-bottom: 18px; filter: grayscale(15%);
+  width: 88px; height: 88px; border-radius: 50%; object-fit: cover;
+  display: block; flex-shrink: 0; filter: grayscale(15%);
 }
+.roaster-info { display: flex; flex-direction: column; text-align: left; }
 .roaster-card h4 { font-size: 18px; margin-bottom: 4px; }
 .roaster-card .role { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--rust); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
 .roaster-card p { font-size: 13px; line-height: 1.6; color: rgba(28,20,16,0.65); }
@@ -231,7 +238,7 @@ footer { background: var(--ink); color: var(--cream); padding: 60px 5% 30px; }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
 .footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 28px; }
 .footer-logo span { color: var(--gold); }
-.footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+.footer-links { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; flex: 1; }
 .footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 12px; }
 .footer-col p, .footer-col a { font-size: 13px; color: rgba(245,239,227,0.7); line-height: 1.9; text-decoration: none; display: block; }
 .footer-bottom {
@@ -313,7 +320,7 @@ footer { background: var(--ink); color: var(--cream); padding: 60px 5% 30px; }
 
   <div class="menu-list reveal">
     <div class="menu-head">
-      <span></span><span>NAME</span><span class="origin-h">ORIGIN</span><span>NOTE</span><span style="text-align:right">PRICE</span>
+      <span></span><span>NAME</span><span class="origin-h">ORIGIN</span><span class="notes-h">NOTE</span><span style="text-align:right">PRICE</span>
     </div>
     <div class="menu-row">
       <span class="idx">01</span>
@@ -379,26 +386,32 @@ footer { background: var(--ink); color: var(--cream); padding: 60px 5% 30px; }
       <div class="section-num">03 / ROASTERS</div>
       <h2 class="section-title display">로스팅 팀</h2>
     </div>
-    <p class="section-sub">각자의 방식으로 원두를 다루는 세 사람이 매주 로스팅을 진행합니다.</p>
+    <p class="section-sub">각자의 방식으로 원두를 다루는 세 사람이<br>매주 로스팅을 진행합니다.</p>
   </div>
   <div class="roaster-grid reveal">
     <div class="roaster-card">
       <img class="roaster-avatar" src="images/roaster-01.png" alt="헤드로스터 김로스터 프로필 사진" loading="lazy">
-      <h4>김로스터 헤드로스터</h4>
-      <div class="role">ROASTING · 8YR</div>
-      <p>싱글오리진 원두의 산미와 밸런스를 살리는 로스팅을 지향합니다. 큐그레이더 자격 보유.</p>
+      <div class="roaster-info">
+        <h4>김로스터 헤드로스터</h4>
+        <div class="role">ROASTING · 8YR</div>
+        <p>싱글오리진 원두의 산미와 밸런스를 살리는 로스팅을 지향합니다. 큐그레이더 자격 보유.</p>
+      </div>
     </div>
     <div class="roaster-card">
       <img class="roaster-avatar" src="images/roaster-02.png" alt="바리스타 이바리스타 프로필 사진" loading="lazy">
-      <h4>이바리스타 바리스타</h4>
-      <div class="role">BREWING · 5YR</div>
-      <p>핸드드립과 에스프레소 추출 레시피를 원두별로 세팅합니다. 국내 브루잉 대회 입상 경력.</p>
+      <div class="roaster-info">
+        <h4>이바리스타 바리스타</h4>
+        <div class="role">BREWING · 5YR</div>
+        <p>핸드드립과 에스프레소 추출 레시피를 원두별로 세팅합니다. 국내 브루잉 대회 입상 경력.</p>
+      </div>
     </div>
     <div class="roaster-card">
       <img class="roaster-avatar" src="images/roaster-03.png" alt="페이스트리 셰프 박베이커 프로필 사진" loading="lazy">
-      <h4>박베이커 페이스트리</h4>
-      <div class="role">BAKING · 6YR</div>
-      <p>저당·글루텐프리 디저트를 전담합니다. 매일 아침 굽는 당일 소진 원칙을 지킵니다.</p>
+      <div class="roaster-info">
+        <h4>박베이커 페이스트리</h4>
+        <div class="role">BAKING · 6YR</div>
+        <p>저당·글루텐프리 디저트를 전담합니다. 매일 아침 굽는 당일 소진 원칙을 지킵니다.</p>
+      </div>
     </div>
   </div>
 </section>

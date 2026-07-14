@@ -25,6 +25,7 @@
     background: var(--cream);
     line-height: 1.6;
     overflow-x: hidden;
+    word-break: keep-all;
   }
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
@@ -32,7 +33,21 @@
   .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
   h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; }
   section { padding: 96px 0; }
-  @media (max-width: 640px) { section { padding: 64px 0; } }
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .eyebrow { font-size: 13.5px; }
+    .service-card .price-list { font-size: 15px; }
+    .designer-card .role { font-size: 14px; }
+    .designer-card p { font-size: 14.5px; }
+    .review-card p { font-size: 14.5px; }
+    .review-author .visit { font-size: 12.5px; }
+    .info-row { font-size: 15px; }
+    .footer-top p, .footer-hours { font-size: 14px; }
+    .footer-bottom { font-size: 13px; }
+    .cmsg-bubble { font-size: 13.5px; }
+    .chat-quick button { font-size: 12px; }
+    .chat-input-bar input { font-size: 13.5px; }
+  }
 
   /* ---------- Placeholder image blocks ---------- */
   .ph {

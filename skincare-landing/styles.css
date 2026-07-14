@@ -20,6 +20,7 @@ body {
   background: var(--warm-white);
   line-height: 1.65;
   overflow-x: hidden;
+  word-break: keep-all;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -27,7 +28,32 @@ button { font-family: inherit; cursor: pointer; }
 .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 h1, h2, h3, h4 { font-family: var(--serif); font-weight: 300; letter-spacing: 0.01em; }
 section { padding: 100px 0; }
-@media (max-width: 640px) { section { padding: 68px 0; } }
+@media (max-width: 640px) {
+  section { padding: 68px 0; }
+  .eyebrow { font-size: 13.5px; }
+  .trust-item .lbl { font-size: 13.5px; }
+  .program-card ul { font-size: 14px; }
+  .program-row .info p { font-size: 14px; }
+  .program-row .time-badge { font-size: 12.5px; }
+  .program-row .detail-link { font-size: 13.5px; }
+  .est-card .role { font-size: 13.5px; }
+  .review-card p { font-size: 14.5px; }
+  .review-author .visit { font-size: 12.5px; }
+  .source-caption .d { font-size: 12px; }
+  .news-item .date { font-size: 13px; }
+  .news-item .badge { font-size: 11.5px; }
+  .content-card .info .d { font-size: 12.5px; }
+  .celeb-card .tag { font-size: 12.5px; }
+  .footer-top p, .footer-hours { font-size: 14px; }
+  .footer-bottom { font-size: 13px; }
+  .cmsg-bubble { font-size: 13.5px; }
+  .chat-quick button { font-size: 12px; }
+  .chat-input-bar input { font-size: 13.5px; }
+}
+@media (max-width: 480px) {
+  .news-item { flex-wrap: wrap; }
+  .news-item .title { flex-basis: 100%; order: 3; margin-top: 2px; }
+}
 
 /* ---------- Placeholder image blocks ---------- */
 .ph {

@@ -53,8 +53,9 @@ body{
   font-family:var(--sans);
   color:var(--deep-green);
   background:var(--cream);
-  line-height:1.7;
-  letter-spacing:-.01em;
+  font-size:17px;
+  line-height:1.78;
+  letter-spacing:-.003em;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
@@ -76,13 +77,13 @@ ul{ list-style:none; }
 .eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); opacity:.8; }
 
 .section{ padding:clamp(64px,9vw,120px) 0; position:relative; }
-.section-head{ max-width:640px; margin-bottom:clamp(34px,5vw,58px); }
+.section-head{ max-width:680px; margin-bottom:clamp(36px,5vw,60px); }
 .section-head h2{
   font-family:var(--serif); font-weight:700;
-  font-size:clamp(1.9rem,4.4vw,3rem);
-  line-height:1.24; margin:.5em 0 .35em; letter-spacing:-.02em;
+  font-size:clamp(2.05rem,4.7vw,3.25rem);
+  line-height:1.26; margin:.5em 0 .4em; letter-spacing:-.018em;
 }
-.section-head p{ color:var(--soft-green); font-size:1.02rem; font-weight:400; }
+.section-head p{ color:var(--soft-green); font-size:1.1rem; line-height:1.75; font-weight:400; }
 .center{ text-align:center; margin-left:auto; margin-right:auto; }
 .center .eyebrow{ justify-content:center; }
 
@@ -157,18 +158,20 @@ ul{ list-style:none; }
 /* fallback tone before image loads */
 .hero-bg{ background:linear-gradient(135deg,#2E3D2B,#3d5138 60%,#54654a); }
 
-.hero-inner{ position:relative; z-index:2; max-width:660px; }
+.hero-inner{ position:relative; z-index:2; max-width:720px; }
 .hero .eyebrow{ color:var(--gold); }
 .hero h1{
   font-family:var(--serif); font-weight:700;
-  font-size:clamp(2.5rem,7vw,4.6rem); line-height:1.14; letter-spacing:-.02em;
-  margin:.42em 0 .5em; text-shadow:0 2px 30px rgba(0,0,0,.3);
+  font-size:clamp(2.4rem,6.2vw,4rem); line-height:1.18; letter-spacing:-.022em;
+  margin:.42em 0 .52em; text-shadow:0 2px 30px rgba(0,0,0,.3);
 }
+.hero h1 .hero-line{ display:block; }          /* 의미 단위로 줄 나눔 */
+.hero h1 .nb{ white-space:nowrap; }            /* "카페에서," 는 절대 분리 안 됨 */
 .hero h1 .accent{ color:var(--gold); font-style:italic; }
-.hero-sub{ font-size:1.08rem; max-width:520px; color:rgba(244,240,230,.9); margin-bottom:26px; }
+.hero-sub{ font-size:1.16rem; line-height:1.75; max-width:540px; color:rgba(244,240,230,.92); margin-bottom:28px; }
 
 .hero-points{ display:flex; flex-direction:column; gap:11px; margin-bottom:34px; }
-.hero-points li{ display:flex; align-items:center; gap:12px; font-size:1.02rem; font-weight:500; }
+.hero-points li{ display:flex; align-items:center; gap:12px; font-size:1.08rem; line-height:1.55; font-weight:500; }
 .hero-points .dot{
   flex:none; width:34px; height:34px; border-radius:50%;
   background:rgba(201,162,75,.16); border:1px solid rgba(201,162,75,.5);
@@ -208,7 +211,7 @@ ul{ list-style:none; }
 .stat + .stat::before{ content:""; position:absolute; left:0; top:14%; height:72%; width:1px; background:rgba(244,240,230,.16); }
 .stat .ico{ color:var(--gold); width:38px; height:38px; margin:0 auto 14px; }
 .stat .big{ font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.2; }
-.stat .lbl{ font-size:.95rem; color:rgba(244,240,230,.78); margin-top:6px; }
+.stat .lbl{ font-size:1.02rem; line-height:1.6; color:rgba(244,240,230,.8); margin-top:8px; }
 
 /* =========================================================
    SIGNATURE
@@ -219,6 +222,7 @@ ul{ list-style:none; }
   background:var(--cream-soft); border-radius:var(--radius);
   overflow:hidden; box-shadow:var(--shadow-soft);
   border:1px solid rgba(122,90,58,.10);
+  display:flex; flex-direction:column;                 /* 카드 세로 정렬 */
   transition:transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .sig-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-card); }
@@ -243,10 +247,10 @@ ul{ list-style:none; }
   padding:.4em .85em; border-radius:100px;
 }
 .sig-tag.best{ background:var(--gold); color:#3a2f14; }
-.sig-body{ padding:22px 24px 26px; }
-.sig-body h3{ font-family:var(--serif); font-weight:700; font-size:1.3rem; margin-bottom:6px; }
-.sig-body p{ color:var(--soft-green); font-size:.92rem; min-height:2.6em; }
-.sig-price{ margin-top:14px; display:flex; align-items:baseline; gap:6px; }
+.sig-body{ padding:24px 26px 28px; flex:1; display:flex; flex-direction:column; text-align:left; }
+.sig-body h3{ font-family:var(--serif); font-weight:700; font-size:1.42rem; line-height:1.3; margin-bottom:8px; }
+.sig-body p{ color:var(--soft-green); font-size:1rem; line-height:1.7; }
+.sig-price{ margin-top:auto; padding-top:16px; display:flex; align-items:baseline; gap:6px; }  /* 가격은 항상 카드 하단 */
 .sig-price .num{ font-family:var(--serif); font-weight:700; font-size:1.4rem; color:var(--wood); }
 .sig-price .won{ font-size:.9rem; color:var(--soft-green); }
 .sig-more{ text-align:center; margin-top:46px; }
@@ -271,14 +275,15 @@ ul{ list-style:none; }
 .space-row.reverse .space-media{ order:2; }
 .space-media{ border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-card); aspect-ratio:5/4; background:linear-gradient(135deg,#d6dcc7,#b9c3a4); }
 .space-media img{ width:100%; height:100%; object-fit:cover; }
-.space-text h3{ font-family:var(--serif); font-weight:700; font-size:clamp(1.6rem,3.2vw,2.2rem); line-height:1.3; margin:.4em 0 .5em; }
-.space-text p{ color:var(--soft-green); margin-bottom:14px; }
+.space-text h3{ font-family:var(--serif); font-weight:700; font-size:clamp(1.7rem,3.4vw,2.35rem); line-height:1.32; margin:.4em 0 .55em; }
+.space-text p{ color:var(--soft-green); font-size:1.08rem; line-height:1.8; margin-bottom:14px; }
 .space-facts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
 .fact{
   display:flex; align-items:center; gap:9px;
   background:var(--cream); border:1px solid rgba(122,90,58,.14);
   padding:.6em 1.05em; border-radius:100px; font-size:.9rem; font-weight:500;
 }
+.fact{ font-size:.98rem; }
 .fact svg{ width:17px; height:17px; color:var(--wood); flex:none; }
 
 /* =========================================================
@@ -302,7 +307,7 @@ ul{ list-style:none; }
 .owner .eyebrow{ color:var(--gold); }
 .owner h2{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,4vw,2.8rem); line-height:1.3; margin:.45em 0 .5em; }
 .owner-quote{ font-family:var(--serif); font-size:clamp(1.2rem,2.4vw,1.5rem); line-height:1.6; color:#fbf6e9; border-left:2px solid var(--gold); padding-left:22px; margin:6px 0 24px; }
-.owner p.body{ color:rgba(244,240,230,.82); margin-bottom:14px; }
+.owner p.body{ color:rgba(244,240,230,.85); font-size:1.08rem; line-height:1.8; margin-bottom:15px; }
 .owner-sign{ font-family:var(--serif); font-style:italic; color:var(--gold); margin-top:10px; font-size:1.05rem; }
 
 /* =========================================================
@@ -355,6 +360,7 @@ ul{ list-style:none; }
 .chip.copied{ background:var(--gold); color:#3a2f14; border-color:var(--gold); }
 .chip.copied svg{ color:#3a2f14; }
 .visit .eyebrow{ color:var(--gold); }
+.visit .section-head p{ color:rgba(244,240,230,.82); }
 .visit h2{ font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,4vw,2.7rem); margin:.45em 0 .5em; line-height:1.3; }
 .visit-hours{
   background:rgba(201,162,75,.12); border:1px solid rgba(201,162,75,.4);
@@ -541,7 +547,7 @@ ul{ list-style:none; }
   </div>
   <div class="wrap hero-inner">
     <span class="eyebrow reveal-up d1">Urban Jungle Café · Daejeon</span>
-    <h1 class="reveal-up d2">식물이 자라는 카페에서,<br><span class="accent">가장 늦게까지</span></h1>
+    <h1 class="reveal-up d2"><span class="hero-line">식물이 자라는 <span class="nb">카페에서,</span></span><span class="hero-line accent">가장 늦게까지</span></h1>
     <p class="hero-sub reveal-up d3">초록이 우거진 자리에 앉아, 대화와 공부가 흐르는 밤. 대전에서 가장 늦게까지 문을 여는 자연친화 카페 그린브라우니입니다.</p>
     <ul class="hero-points reveal-up d4">
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>매일 밤 <b>10:30</b>까지 · 대화와 공부가 있는 밤 (LO 22:00)</li>
@@ -642,7 +648,7 @@ ul{ list-style:none; }
 <!-- ===================== SPACE ===================== -->
 <section class="section space" id="space">
   <div class="wrap">
-    <div class="section-head sr">
+    <div class="section-head center sr">
       <span class="eyebrow">The Space</span>
       <h2>자연과 어우러진<br>초록의 라운지</h2>
       <p>도심 속 작은 식물원. 초록에 둘러싸여 커피를 마시고, 이야기를 나누고, 오래 머물 수 있는 공간입니다.</p>
@@ -719,6 +725,11 @@ ul{ list-style:none; }
 <!-- ===================== VISIT ===================== -->
 <section class="section visit" id="visit">
   <div class="wrap">
+    <div class="section-head center sr">
+      <span class="eyebrow">Visit Us</span>
+      <h2>가장 늦게까지,<br>기다리고 있을게요</h2>
+      <p>대전 유성구 상대동, 초록이 우거진 자리에서 매일 밤 10:30까지 문을 엽니다.</p>
+    </div>
     <div class="visit-panels">
       <figure class="visit-card sr">
         <img src="images/visit-card.jpg" alt="오시는 길 — 대전광역시 유성구 상대동 477-7 그린브라우니(green brownie). 매일 밤 10:30까지 영업, 라스트오더 22:00로 동네에서 가장 늦게까지. 전화 042-000-0000. 매장 앞 및 인근 공영주차장 이용 가능." loading="lazy">
